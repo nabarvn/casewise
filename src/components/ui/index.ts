@@ -5,3 +5,7 @@ export { Icons } from "./Icons";
 export { Button } from "./Button";
 export { Separator } from "./Separator";
 export { Toaster } from "./Toaster";
+export { Toast } from "./Toast";
+export { Progress } from "./Progress";
+export { AspectRatio } from "./AspectRatio";
+export { ScrollArea } from "./ScrollArea";
