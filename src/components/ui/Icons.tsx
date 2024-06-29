@@ -1,7 +1,7 @@
-type IconProps = React.HTMLAttributes<SVGElement>;
+import { LucideProps } from "lucide-react";
 
 const Icons = {
-  gitHub: (props: IconProps) => (
+  gitHub: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
       <path
         fill="currentColor"
@@ -10,7 +10,7 @@ const Icons = {
     </svg>
   ),
 
-  google: (props: IconProps) => (
+  google: (props: LucideProps) => (
     <svg role="img" viewBox="0 0 24 24" {...props}>
       <path
         fill="currentColor"
@@ -19,7 +19,7 @@ const Icons = {
     </svg>
   ),
 
-  spinner: (props: IconProps) => (
+  spinner: (props: LucideProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -33,6 +33,25 @@ const Icons = {
       {...props}
     >
       <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+    </svg>
+  ),
+
+  underline: (props: LucideProps) => (
+    <svg {...props} viewBox="0 0 687 155">
+      <g
+        stroke="currentColor"
+        strokeWidth="7"
+        fill="none"
+        fillRule="evenodd"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path
+          d="M20 98c27-13.3333333 54-20 81-20 40.5 0 40.5 20 81 20s40.626917-20 81-20 40.123083 20 80.5 20 40.5-20 81-20 40.5 20 81 20 40.626917-20 81-20c26.915389 0 53.748722 6.6666667 80.5 20"
+          opacity=".3"
+        ></path>
+        <path d="M20 118c27-13.3333333 54-20 81-20 40.5 0 40.5 20 81 20s40.626917-20 81-20 40.123083 20 80.5 20 40.5-20 81-20 40.5 20 81 20 40.626917-20 81-20c26.915389 0 53.748722 6.6666667 80.5 20"></path>
+      </g>
     </svg>
   ),
 };
