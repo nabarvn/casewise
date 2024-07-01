@@ -1,10 +1,10 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { Providers } from "@/components";
 import { Toaster } from "@/components/ui";
+import { Recursive } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const recursive = Recursive({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="hydrated antialiased">
       <Providers>
-        <body className={inter.className}>
+        <body className={recursive.className}>
           {children}
           <Toaster />
         </body>
