@@ -110,7 +110,9 @@ const UploadPage = () => {
               </div>
 
               {isPending ? null : (
-                <p className="text-xs text-zinc-500">PNG, JPG, JPEG</p>
+                <p className="text-xs text-zinc-500">
+                  PNG, JPG, JPEG &#40;upto 4MB&#41;
+                </p>
               )}
             </div>
           )}
