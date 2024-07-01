@@ -101,7 +101,7 @@ const HomePage = () => (
     </section>
 
     {/* value proposition section */}
-    <section className="grainy-dark bg-slate-100 py-24">
+    <section className="bg-slate-100 py-24">
       <MaxWidthWrapper className="flex flex-col items-center gap-16 sm:gap-32">
         <div className="px-6">
           <h2 className="mt-2 text-balance text-center text-4xl font-bold !leading-tight tracking-tight text-gray-900 lg:text-5xl 2xl:text-7xl">
@@ -201,7 +201,7 @@ const HomePage = () => (
           </div>
         </div>
 
-        <ul className="mx-auto w-fit max-w-prose space-y-2 font-medium">
+        <ul className="mx-auto w-fit max-w-prose space-y-2 px-6 font-medium">
           {FEATURES.map(
             (feature, i) =>
               i > 2 && (
