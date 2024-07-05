@@ -12,7 +12,7 @@ const SSOCallback = () => {
   useEffect(() => {
     const handleSSOCallback = async () => {
       try {
-        await new Promise((resolve) => setTimeout(resolve, 2000));
+        await new Promise((resolve) => setTimeout(resolve, 500));
         setIsLoading(false);
       } catch (error) {
         console.error("Error handling SSO callback", error);
@@ -34,7 +34,11 @@ const SSOCallback = () => {
       </div>
     );
 
-  return <AuthenticateWithRedirectCallback />;
+  return (
+    <AuthenticateWithRedirectCallback
+      signInUrl={process.env.NEXT_PUBLIC_CLERK_SIGN_IN_URL}
+    />
+  );
 };
 
 export default SSOCallback;
