@@ -18,6 +18,8 @@ export const ourFileRouter = {
       const res = await fetch(file.url);
       const buffer = await res.arrayBuffer();
 
+      const imageName = file.name.toLowerCase().split(" ").join("_");
+
       const imgMetadata = await sharp(buffer).metadata();
       const { width, height } = imgMetadata;
 
@@ -25,6 +27,7 @@ export const ourFileRouter = {
         const configuration = await db.configuration.create({
           data: {
             imageUrl: file.url,
+            imageName: imageName,
             height: height || 500,
             width: width || 500,
           },
