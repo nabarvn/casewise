@@ -16,9 +16,15 @@ import {
 } from "@/components/ui/Card";
 
 import { toast } from "sonner";
-import { ArrowRight } from "lucide-react";
 import { Input, Label, Icons } from "@/components/ui";
+import { ArrowRight, CircleHelp } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/Button";
+
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/Tooltip";
 
 const SignUpPage = () => (
   <div className="grid w-full grow items-center px-4 sm:justify-center">
@@ -102,7 +108,18 @@ const SignUpPage = () => (
 
                   <Clerk.Field name="emailAddress" className="space-y-2">
                     <Clerk.Label asChild>
-                      <Label>Email address</Label>
+                      <Label className="flex gap-x-1">
+                        Email address
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <CircleHelp className="-mt-px hidden size-3.5 lg:block" />
+                          </TooltipTrigger>
+
+                          <TooltipContent side="right">
+                            We will send a verification code
+                          </TooltipContent>
+                        </Tooltip>
+                      </Label>
                     </Clerk.Label>
 
                     <Clerk.Input type="email" required asChild>
