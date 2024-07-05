@@ -1,6 +1,6 @@
-// bg-blue-950 border-blue-950
 // bg-zinc-900 border-zinc-900
 // bg-rose-950 border-rose-950
+// bg-blue-950 border-blue-950
 
 import { PRODUCT_PRICES } from "@/config/products";
 
@@ -66,13 +66,13 @@ export const FINISHES = {
   name: "finish",
   options: [
     {
-      label: "Smooth Finish",
+      label: "Smooth",
       value: "smooth",
       description: undefined,
       price: PRODUCT_PRICES.finish.smooth,
     },
     {
-      label: "Textured Finish",
+      label: "Textured",
       value: "textured",
       description: "Soft grippy texture",
       price: PRODUCT_PRICES.finish.textured,
