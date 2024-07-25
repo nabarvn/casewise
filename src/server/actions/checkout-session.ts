@@ -4,7 +4,7 @@ import { db } from "@/server/db";
 import { stripe } from "@/lib/stripe";
 import { Order } from "@prisma/client";
 import { absoluteUrl } from "@/lib/utils";
-import { auth } from "@clerk/nextjs/server";
+import { currentUser } from "@clerk/nextjs/server";
 import { BASE_PRICE, PRODUCT_PRICES } from "@/config/products";
 
 export const createCheckoutSession = async ({
@@ -20,9 +20,9 @@ export const createCheckoutSession = async ({
     throw new Error("No such configuration found");
   }
 
-  const { userId } = auth();
+  const user = await currentUser();
 
-  if (!userId) {
+  if (!user?.id) {
     throw new Error("You need to be logged in");
   }
 
@@ -42,7 +42,7 @@ export const createCheckoutSession = async ({
 
   const existingOrder = await db.order.findFirst({
     where: {
-      userId,
+      userId: user.id,
       configurationId: configuration.id,
     },
   });
@@ -52,7 +52,7 @@ export const createCheckoutSession = async ({
   } else {
     order = await db.order.create({
       data: {
-        userId,
+        userId: user.id,
         amount: totalPrice / 100,
         configurationId: configuration.id,
       },
@@ -71,13 +71,14 @@ export const createCheckoutSession = async ({
   const stripeSession = await stripe.checkout.sessions.create({
     mode: "payment",
     payment_method_types: ["card"],
+    customer_email: user?.primaryEmailAddress?.emailAddress,
     success_url: absoluteUrl(`/thank-you?orderId=${order.id}`),
     cancel_url: absoluteUrl(`/configure/preview?id=${configuration.id}`),
     shipping_address_collection: {
       allowed_countries: ["US", "IN", "SG", "JP", "AE"],
     },
     metadata: {
-      userId,
+      userId: user.id,
       orderId: order.id,
     },
     line_items: [{ price: product.default_price as string, quantity: 1 }],
