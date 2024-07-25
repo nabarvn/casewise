@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { twMerge } from "tailwind-merge";
 import { clsx, type ClassValue } from "clsx";
 
@@ -22,3 +23,42 @@ export const formatPrice = (price: number) => {
 
   return formatter.format(price);
 };
+
+export function constructMetadata({
+  title = "Casewise",
+  description = "Design custom high-quality phone cases in seconds",
+  image = "/thumbnail.png",
+  icons = "/favicon.ico",
+  noIndex = false, // allow search engine bots to crawl and index the website
+}: {
+  title?: string;
+  description?: string;
+  image?: string;
+  icons?: string;
+  noIndex?: boolean;
+} = {}): Metadata {
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [{ url: image }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+      creator: "@nabarvn",
+    },
+    icons,
+    metadataBase: new URL("https://casewise.nabarun.app"),
+    ...(noIndex && {
+      robots: {
+        index: false,
+        follow: false,
+      },
+    }),
+  };
+}
