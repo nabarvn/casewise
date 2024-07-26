@@ -1,0 +1,121 @@
+/* padding styles */
+.paddingX {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.paddingY {
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+
+.defaultPadding {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+
+/* paragraph styles */
+.paragraph {
+  margin: 0;
+  line-height: 2;
+}
+
+.paragraphWithBold {
+  margin: 0;
+  line-height: 2;
+  font-weight: bold;
+}
+
+/* heading styles */
+.heading {
+  font-size: 32px;
+  line-height: 1.3;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: -1px;
+}
+
+/* text styles */
+.text {
+  margin: 0;
+  line-height: 2;
+  color: #747474;
+  font-weight: 500;
+}
+
+/* button styles */
+.button {
+  border: 1px solid #929292;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 10px 0;
+  width: 220px;
+  display: block;
+  text-align: center;
+  font-weight: 500;
+  color: #000;
+}
+
+/* horizontal rule styles */
+.hr {
+  border-color: #e5e5e5;
+  margin: 0;
+}
+
+/* main container styles */
+.main {
+  background-color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  padding: 0 24px;
+}
+
+/* container styles */
+.container {
+  margin: 10px auto;
+  width: 600px;
+  max-width: 100%;
+  border: 1px solid #e5e5e5;
+}
+
+/* track styles */
+.trackContainer {
+  padding: 22px 40px;
+  background-color: #f7f7f7;
+}
+
+.trackNumber {
+  margin: 12px 0 0 0;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #6f6f6f;
+}
+
+/* message styles */
+.message {
+  padding: 40px 74px;
+  text-align: center;
+}
+
+/* address title styles */
+.addressTitle {
+  margin: 0;
+  line-height: 2;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/* footer styles */
+.footerPolicy {
+  width: 166px;
+  margin: auto;
+}
+
+.footerText {
+  margin: 0;
+  color: #afafaf;
+  font-size: 13px;
+  text-align: center;
+}
