@@ -5,7 +5,7 @@ import NextImage from "next/image";
 import { useRouter } from "next/navigation";
 import { cn, formatPrice } from "@/lib/utils";
 import { ResizeHandler } from "@/components/design";
-import { useRef, useState, useTransition } from "react";
+import { useEffect, useRef, useState, useTransition } from "react";
 import { AspectRatio, ScrollArea, Label, Button } from "@/components/ui";
 import { COLORS, FINISHES, MATERIALS, MODELS } from "@/lib/validators/options";
 
@@ -50,6 +50,19 @@ const DesignConfigurator = ({
   const router = useRouter();
   const { toast } = useToast();
   const [isTransitioning, startTransition] = useTransition();
+
+  const dropdownMenuTriggerRef = useRef<HTMLButtonElement>(null);
+
+  const [dropdownMenuContentWidth, setDropdownMenuContentWidth] =
+    useState<string>("");
+
+  useEffect(() => {
+    if (dropdownMenuTriggerRef.current) {
+      setDropdownMenuContentWidth(
+        `${dropdownMenuTriggerRef.current.offsetWidth}px`,
+      );
+    }
+  }, []);
 
   const { mutate: saveConfig, isPending } = useMutation({
     mutationKey: ["save-config"],
@@ -248,6 +261,7 @@ const DesignConfigurator = ({
             bottomRight: <ResizeHandler />,
           }}
           lockAspectRatio
+          disableDragging={isPending || isTransitioning}
           className="absolute z-20 border-[3px] border-primary"
         >
           <div className="relative h-full w-full">
@@ -303,9 +317,11 @@ const DesignConfigurator = ({
                                 color.value === "rose" && (focus || checked),
                               "border-blue-950":
                                 color.value === "blue" && (focus || checked),
+                              "cursor-default": isPending || isTransitioning,
                             },
                           )
                         }
+                        disabled={isPending || isTransitioning}
                       >
                         <span
                           className={cn(
@@ -326,18 +342,25 @@ const DesignConfigurator = ({
                   <Label>Model</Label>
 
                   <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
+                    <DropdownMenuTrigger
+                      asChild
+                      disabled={isPending || isTransitioning}
+                    >
                       <Button
                         role="combobox"
                         variant="outline"
                         className="w-full justify-between"
+                        ref={dropdownMenuTriggerRef}
                       >
                         {options.model.label}
                         <ChevronsUpDown className="ml-2 size-4 shrink-0 opacity-50" />
                       </Button>
                     </DropdownMenuTrigger>
 
-                    <DropdownMenuContent>
+                    <DropdownMenuContent
+                      className="space-y-1"
+                      style={{ width: dropdownMenuContentWidth }}
+                    >
                       {MODELS.options.map((model) => (
                         <DropdownMenuItem
                           key={model.label}
@@ -394,9 +417,13 @@ const DesignConfigurator = ({
                                 "relative block cursor-pointer rounded-lg border-2 border-zinc-200 bg-white px-6 py-4 shadow-sm outline-none ring-0 focus:outline-none focus:ring-0 sm:flex sm:justify-between",
                                 {
                                   "border-primary": focus || checked,
+
+                                  "cursor-default":
+                                    isPending || isTransitioning,
                                 },
                               )
                             }
+                            disabled={isPending || isTransitioning}
                           >
                             <span className="flex items-center">
                               <span className="flex flex-col text-sm">
