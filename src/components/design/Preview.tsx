@@ -26,7 +26,7 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
 
   const { id, color, model, material, finish, croppedImageUrl } = configuration;
 
-  useEffect(() => setShowConfetti(true));
+  useEffect(() => setShowConfetti(true), []);
 
   const colorValue = COLORS.find(
     (supportedColor) => supportedColor.value === color,
