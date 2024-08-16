@@ -7,7 +7,12 @@ import { useToast } from "@/hooks/use-toast";
 import { useState, useTransition } from "react";
 import { useUploadThing } from "@/lib/uploadthing";
 import Dropzone, { FileRejection } from "react-dropzone";
-import { Image, Loader2, MousePointerSquareDashed } from "lucide-react";
+
+import {
+  Loader2,
+  Image as ImageIcon,
+  MousePointerSquareDashed,
+} from "lucide-react";
 
 const UploadPage = () => {
   const router = useRouter();
@@ -28,6 +33,16 @@ const UploadPage = () => {
     },
     onUploadProgress(p) {
       setUploadProgress(p);
+    },
+    onUploadError: (err) => {
+      if (err.code === "BAD_REQUEST") {
+        toast({
+          title: "Image Upload Error",
+          description:
+            "Please ensure your file size is within the specified limit and try again.",
+          variant: "destructive",
+        });
+      }
     },
   });
 
@@ -67,6 +82,7 @@ const UploadPage = () => {
           }}
           onDragEnter={() => setIsDragOver(true)}
           onDragLeave={() => setIsDragOver(false)}
+          disabled={isUploading || isPending}
         >
           {({ getRootProps, getInputProps }) => (
             <div
@@ -80,7 +96,7 @@ const UploadPage = () => {
               ) : isUploading || isPending ? (
                 <Loader2 className="size-6 animate-spin text-zinc-500" />
               ) : (
-                <Image className="size-6 text-zinc-500 xl:size-8" />
+                <ImageIcon className="size-6 text-zinc-500 xl:size-8" />
               )}
 
               <div className="flex flex-col justify-center text-sm text-zinc-700">
