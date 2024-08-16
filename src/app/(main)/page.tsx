@@ -184,12 +184,14 @@ const HomePage = () => (
           <div className="relative flex grid-cols-2 flex-col items-center gap-40 md:grid">
             <img
               src="/arrow.png"
+              alt="arrow dotted"
               className="absolute left-1/2 top-[20rem] z-10 -translate-x-1/2 -translate-y-1/2 rotate-90 md:top-1/2 md:rotate-0"
             />
 
             <div className="relative h-60 w-full max-w-sm rounded-xl bg-gray-900/5 ring-inset ring-gray-900/10 md:justify-self-end lg:h-80 lg:rounded-2xl">
               <img
                 src="/horse.jpg"
+                alt="example horse image"
                 className="h-full w-full rounded-md bg-white object-cover shadow-2xl ring-1 ring-gray-900/10"
               />
             </div>
