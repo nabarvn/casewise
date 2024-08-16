@@ -6,3 +6,6 @@ export { default as Reviews } from "./Reviews";
 export { default as Footer } from "./Footer";
 export { default as Steps } from "./Steps";
 export { default as LoginModal } from "./LoginModal";
+export { default as ThankYou } from "./ThankYou";
+export { default as CasePreview } from "./CasePreview";
+export { default as StatusDropdown } from "./StatusDropdown";
