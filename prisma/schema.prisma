@@ -49,13 +49,13 @@ model Configuration {
     material        CaseMaterial?
     finish          CaseFinish?
     croppedImageUrl String?
-    Order           Order[]
+    orders          Order[]
 }
 
 model User {
-    id    String  @id
-    email String
-    Order Order[]
+    id     String  @id
+    email  String
+    orders Order[]
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
