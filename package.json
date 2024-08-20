@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@clerk/elements": "^0.7.0",
@@ -24,6 +25,7 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-toast": "^1.2.1",
     "@radix-ui/react-tooltip": "^1.1.2",
+    "@react-email/components": "^0.0.22",
     "@tailwindcss/typography": "^0.5.13",
     "@tanstack/react-query": "^5.51.16",
     "@uploadthing/react": "^6.7.2",
@@ -38,6 +40,7 @@
     "react-dom-confetti": "^0.2.0",
     "react-dropzone": "^14.2.3",
     "react-rnd": "^10.4.11",
+    "resend": "^4.0.0",
     "sharp": "^0.33.4",
     "sonner": "^1.5.0",
     "stripe": "^16.7.0",
