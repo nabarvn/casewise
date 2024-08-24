@@ -9,7 +9,7 @@ import { REVIEWERS, FIVE_STAR_REVIEWS } from "@/config/reviews";
 import { ArrowRight, Check, CheckCircle, Star } from "lucide-react";
 
 const HomePage = () => (
-  <div className="grainy-light bg-slate-50">
+  <div className="grainy-light dark:grainy-dark bg-slate-50">
     <section className="lg:h-[calc(100svh-56px)]">
       <MaxWidthWrapper className="pb-24 md:pb-32 md:pt-10 lg:grid lg:grid-cols-3 lg:gap-x-0 lg:pb-52 lg:pt-0 xl:pt-10 2xl:gap-x-8 2xl:pt-32">
         <div className="col-span-2 px-6 lg:pt-4">
