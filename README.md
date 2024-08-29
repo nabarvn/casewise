@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Casewise
 
-## Getting Started
+Casewise is your go-to destination for high-quality, personalized phone cases that capture your most cherished memories. This platform allows customers to design custom phone cases, combining style and protection in one unique product. If you want to preserve a special moment or want a case that reflects your style, make a purchase now!
 
-First, run the development server:
+## Screenshot
+
+<img src="./screenshot.png">
+
+<p align="center">
+  <a href="https://casewise.nabarun.app"><strong>View Project »</strong></a>
+</p>
+
+## Running Locally
+
+This application requires Node.js v20.14.0+.
+
+### Cloning the repository to the local machine:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/nabarvn/casewise.git
+cd casewise
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installing the dependencies:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Setting up the `.env` file:
 
-## Learn More
+```bash
+cp .env.example .env
+```
 
-To learn more about Next.js, take a look at the following resources:
+> [!IMPORTANT]
+> Ensure you populate the variables with your respective API keys and configuration values before proceeding.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Configuring Prisma:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+pnpm prisma generate
+```
 
-## Deploy on Vercel
+```bash
+pnpm prisma db push
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Running the application:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+pnpm dev
+```
+
+## Tech Stack
+
+- **Language**: [TypeScript](https://www.typescriptlang.org)
+- **Framework**: [Next.js](https://nextjs.org)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com)
+- **Analytics**: [Vercel Analytics](https://vercel.com/analytics)
+- **State Management**: [React Query](https://www.npmjs.com/package/@tanstack/react-query)
+- **Postgres Database**: [Neon](https://neon.tech/docs/introduction/about)
+- **ORM Toolkit**: [Prisma](https://www.prisma.io/docs/concepts/overview/what-is-prisma)
+- **Email API**: [Resend](https://resend.com/docs/send-with-nextjs)
+- **Authentication**: [Clerk](https://clerk.com/docs/quickstarts/nextjs)
+- **File Hosting**: [UploadThing](https://docs.uploadthing.com)
+- **Payments**: [Stripe](https://stripe.com/docs/payments)
+- **Deployment**: [Vercel](https://vercel.com)
+
+## Acknowledgements
+
+- **Custom UI Components**: [shadcn/ui](https://ui.shadcn.com/docs)
+- **Auth Component Library**: [Clerk Elements](https://clerk.com/docs/customization/elements/overview)
+
+## Credits
+
+Learned a ton while building this project. Major thanks to Josh for the next level (no pun intended) tutorial!
+
+<hr />
+
+<div align="center">Don't forget to leave a STAR 🌟</div>
